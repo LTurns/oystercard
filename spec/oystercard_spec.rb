@@ -1,4 +1,9 @@
+require 'oystercard'
 
 describe Oystercard do
-
-end 
+  describe '#balance' do
+    it 'shows balance' do
+      expect(subject.balance).to eq 0
+    end
+  end
+end
