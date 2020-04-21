@@ -10,7 +10,6 @@ class Oystercard
 
   def top_up(value)
     fail "Maximum balance of #{MAXIMUM_BALANCE} exceeded" if @balance + value > MAXIMUM_BALANCE
-    fail "card has insufficient balance to touch-in" if @balance + value < MINIMUM_BALANCE
     @balance += value
   end
 
@@ -19,6 +18,7 @@ class Oystercard
   end
 
  def touch_in?
+   fail "Insufficient balance to touch in" if @balance < MINIMUM_BALANCE
    @in_journey = true
  end
 
